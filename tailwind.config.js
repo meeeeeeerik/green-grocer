@@ -2,7 +2,13 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        palanquin: ['Palanquin Dark', 'sans-serif'],
+        jomhuria: ['Jomhuria', 'serif'],
+        inter: ['Inter', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };
