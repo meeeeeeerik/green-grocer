@@ -3,7 +3,7 @@ import ShoppingCartImage from '../assets/shopping-cart-image.png';
 export function HomePage() {
   return (
     <div className="bg-gradient-to-b from-[#FCFCF7] to-[#F5EEAD] pt-[200px] xl:pt-[266px] pb-[207px]">
-      <div className="container px-5 mx-auto mt-[200px] xl:mt-[266px] flex flex-col md:flex-row items-center justify-between gap-10">
+      <div className="container px-5 mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         <div className="w-full max-w-[705px] lg:ml-[72px] max-md:text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-[80px] 2xl:text-[100px] font-palanquin leading-none mb-5">
             Your Ultimate Online{' '}
