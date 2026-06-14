@@ -7,6 +7,7 @@ module.exports = {
         palanquin: ['Palanquin Dark', 'sans-serif'],
         jomhuria: ['Jomhuria', 'serif'],
         inter: ['Inter', 'sans-serif'],
+        opensans: ['Open Sans', 'sans-serif'],
       },
     },
   },

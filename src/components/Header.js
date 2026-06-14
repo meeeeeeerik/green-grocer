@@ -21,7 +21,7 @@ export function Header() {
           </div>
         </Link>
         <div className="flex items-center gap-10 ml-3 2xl:ml-0">
-          <ul className="hidden xl:flex items-center gap-7">
+          <ul className="hidden xl:flex items-center gap-7 2xl:gap-16">
             <li>
               <Link to="/" className="text-lg 2xl:text-xl font-bold">
                 Home
