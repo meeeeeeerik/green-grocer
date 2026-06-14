@@ -12,7 +12,7 @@ export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-10">
+    <header className="fixed top-0 left-0 w-full z-10 bg-[#FCFCF7]">
       <div className="container w-full mx-auto flex items-center justify-between px-5 py-6">
         <Link to="/" className="flex items-center gap-5 ">
           <img src={Logo} alt="Green-Grocer-Logo" className="w-12 h-12" />
