@@ -1,5 +1,6 @@
 import { Features } from '../components/Features';
 import { Hero } from '../components/Hero';
+import { SaleBanners } from '../components/SaleBanners';
 
 export function HomePage() {
   return (
@@ -7,6 +8,8 @@ export function HomePage() {
       <Hero />
 
       <Features />
+
+      <SaleBanners />
     </div>
   );
 }

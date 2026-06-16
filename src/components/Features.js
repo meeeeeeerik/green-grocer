@@ -20,13 +20,13 @@ export function Features() {
   ];
 
   return (
-    <div className="content mx-auto px-5 mb-[100px]">
+    <div className="container mx-auto px-5 mb-[100px]">
       <div className=" lg:px-[125px] px-[80px] max-md:px-[30px] flex-wrap gap-8 flex items-center justify-between">
         {features.map((item) => {
           return (
             <div
               key={item.title}
-              className="flex items-center gap-5 min-w-0 max-w-full"
+              className="flex items-center gap-5 min-w-0 max-w-full hover:-translate-y-1 transition-transform duration-200"
             >
               <img
                 src={item.icon}

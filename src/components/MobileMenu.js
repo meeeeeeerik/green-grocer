@@ -1,9 +1,16 @@
-import { Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import SearchIcon from '../assets/search-icon.svg';
 import HeartIcon from '../assets/heart-icon.svg';
 import ShoppingCartIcon from '../assets/shopping-cart-icon.svg';
 
 export function MobileMenu({ isMenuOpen, onMenuClose }) {
+  const location = useLocation();
+
+  useEffect(() => {
+    onMenuClose();
+  }, [location.pathname, onMenuClose]);
+
   return (
     <>
       {isMenuOpen && (
@@ -26,32 +33,65 @@ export function MobileMenu({ isMenuOpen, onMenuClose }) {
 
         <ul className="flex flex-col gap-10 text-right">
           <li>
-            <Link to="/" className="text-xl font-bold">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-xl font-bold transition-colors duration-200 ${
+                  isActive ? 'text-[#517907]' : 'hover:text-[#517907]'
+                }`
+              }
+            >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/shop" className="text-xl font-bold">
+            <NavLink
+              to="/shop"
+              className={({ isActive }) =>
+                `text-xl font-bold transition-colors duration-200 ${
+                  isActive ? 'text-[#517907]' : 'hover:text-[#517907]'
+                }`
+              }
+            >
               Shop
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/about" className="text-xl font-bold">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `text-xl font-bold transition-colors duration-200 ${
+                  isActive ? 'text-[#517907]' : 'hover:text-[#517907]'
+                }`
+              }
+            >
               About
-            </Link>
+            </NavLink>
           </li>
         </ul>
 
         <hr className="border-zinc-300 border-y-[1px] w-full mb-5" />
 
         <div className="flex sm:hidden items-center gap-6">
-          <img src={HeartIcon} alt="Heart" className="w-6 h-6" />
-          <img src={ShoppingCartIcon} alt="Cart" className="w-6 h-6" />
+          <img
+            src={HeartIcon}
+            alt="Heart"
+            className="w-6 h-6 hover:scale-110 transition-transform duration-200 cursor-pointer"
+          />
+          <img
+            src={ShoppingCartIcon}
+            alt="Cart"
+            className="w-6 h-6 hover:scale-110 transition-transform duration-200 cursor-pointer"
+          />
         </div>
 
         <div className="flex gap-3">
-          <button className="border border-black px-3 py-2">Login</button>
-          <button className="px-3 py-2">Sign Up</button>
+          <button className="border border-black px-3 py-2 hover:bg-black hover:text-white transition-colors duration-200">
+            Login
+          </button>
+          <button className="px-3 py-2 hover:text-[#517907] transition-colors duration-200">
+            Sign Up
+          </button>
         </div>
       </div>
     </>

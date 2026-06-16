@@ -1,8 +1,6 @@
 import ShoppingCartImage from '../assets/shopping-cart-image.png';
 
-
 export function Hero() {
-
   return (
     <div className="bg-gradient-to-b from-[#FCFCF7] to-[#F5EEAD] pt-[200px] xl:pt-[266px] pb-[207px] mb-[115px]">
       <div className="container px-5 mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
@@ -22,7 +20,7 @@ export function Hero() {
             range of fresh produce and essentials
           </div>
 
-          <button className="text-palanquin text-white text-base md:text-xl xl:text-2xl px-6 md:px-10 2xl:px-14 py-3 md:py-5 font-semibold bg-black text-center">
+          <button className="text-palanquin text-white text-base md:text-xl xl:text-2xl px-6 md:px-10 2xl:px-14 py-3 md:py-5 font-semibold bg-black text-center hover:bg-[#517907] transition-colors duration-300">
             Learn More
           </button>
         </div>
