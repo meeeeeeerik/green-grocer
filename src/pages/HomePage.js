@@ -1,6 +1,7 @@
 import { Features } from '../components/Features';
 import { Hero } from '../components/Hero';
 import { SaleBanners } from '../components/SaleBanners';
+import { TopCategory } from '../components/TopCategory';
 
 export function HomePage() {
   return (
@@ -10,6 +11,8 @@ export function HomePage() {
       <Features />
 
       <SaleBanners />
+
+      <TopCategory />
     </div>
   );
 }

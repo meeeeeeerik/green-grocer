@@ -4,7 +4,7 @@ import ArrowIcon from '../assets/arrow-icon.svg';
 
 export function SaleBanners() {
   return (
-    <div className="container px-5 mx-auto max-xl:flex-col flex gap-7 justify-between">
+    <div className="container px-5 mx-auto max-xl:flex-col flex gap-7 justify-between mb-52 max-md:mb-20">
       <div className="bg-[#DEF1BD] max-xl:flex-col-reverse max-xl:gap-4 flex items-center pt-6 pb-5 xl:pb-20 shadow-lg rounded-md">
         <img
           src={ApplesImage}
