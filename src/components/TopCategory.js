@@ -53,7 +53,7 @@ export function TopCategory() {
   };
 
   return (
-    <div className="container mx-auto px-5">
+    <div className="container mx-auto px-5 mb-[150px]">
       <div className="xl:pl-6 px-6 xl:pr-28 max-[350px]:px-0">
         <div className="mb-6 sm:mb-10 flex items-center justify-between">
           <h2 className="font-bold text-inter text-2xl sm:text-3xl lg:text-4xl truncate min-w-0 leading-normal py-1">

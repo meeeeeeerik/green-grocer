@@ -1,3 +1,4 @@
+import { EcoFriendly } from '../components/EcoFriendly';
 import { Features } from '../components/Features';
 import { Hero } from '../components/Hero';
 import { SaleBanners } from '../components/SaleBanners';
@@ -13,6 +14,8 @@ export function HomePage() {
       <SaleBanners />
 
       <TopCategory />
+
+      <EcoFriendly />
     </div>
   );
 }
