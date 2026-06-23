@@ -1,8 +1,9 @@
-import { EcoFriendly } from '../components/EcoFriendly';
-import { Features } from '../components/Features';
-import { Hero } from '../components/Hero';
-import { SaleBanners } from '../components/SaleBanners';
-import { TopCategory } from '../components/TopCategory';
+import { DailyBestSell } from '../sections/DailyBestSell';
+import { EcoFriendly } from '../sections/EcoFriendly';
+import { Features } from '../sections/Features';
+import { Hero } from '../sections/Hero';
+import { SaleBanners } from '../sections/SaleBanners';
+import { TopCategory } from '../sections/TopCategory';
 
 export function HomePage() {
   return (
@@ -16,6 +17,8 @@ export function HomePage() {
       <TopCategory />
 
       <EcoFriendly />
+
+      <DailyBestSell />
     </div>
   );
 }

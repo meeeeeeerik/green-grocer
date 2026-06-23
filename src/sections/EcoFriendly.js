@@ -2,7 +2,7 @@ import CartOfProducts from '../assets/cart-of-products-image.png';
 
 export function EcoFriendly() {
   return (
-    <div className="container mx-auto px-5">
+    <div className="container mx-auto px-5 mb-[185px]">
       <div className="bg-gradient-to-tr from-[#DEF1BD] to-[#f8fcd6] flex flex-col xl:flex-row gap-8 md:gap-16 lg:gap-20 xl:gap-40 pt-10 md:pt-[75px] pl-8 md:pl-12 lg:pl-16 xl:pl-32 pb-10 md:pb-20 lg:pb-28 pr-6 md:pr-8 xl:pr-11 rounded-xl shadow-lg">
         <div className="flex justify-center">
           <img

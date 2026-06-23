@@ -1,7 +1,7 @@
-import Logo from '../assets/logo.png';
-import SearchIcon from '../assets/search-icon.svg';
-import HeartIcon from '../assets/heart-icon.svg';
-import ShoppingCartIcon from '../assets/shopping-cart-icon.svg';
+import Logo from '../../assets/logo.png';
+import SearchIcon from '../../assets/search-icon.svg';
+import HeartIcon from '../../assets/heart-icon.svg';
+import ShoppingCartIcon from '../../assets/shopping-cart-icon.svg';
 import { Link } from 'react-router-dom';
 import { useState, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
