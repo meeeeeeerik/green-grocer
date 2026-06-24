@@ -5,7 +5,7 @@ import HeartIcon from '../assets/heart-empty-icon.svg';
 
 export function ProductCard({ title, price, rating, image }) {
   return (
-    <div className="shadow-xl px-3 sm:px-5 py-4 sm:py-8 rounded-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+    <div className="shadow-xl px-3 sm:px-5 py-4 sm:py-8 rounded-3xl hover:shadow-3xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
       <div className="w-full h-[120px] sm:h-[180px] mb-4 sm:mb-10 overflow-hidden">
         <img
           src={image}
