@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import CartOfProducts from '../assets/cart-of-products-image.png';
 
 export function EcoFriendly() {
@@ -26,9 +27,12 @@ export function EcoFriendly() {
             products on our grocery web store, connecting you with sustainable
             choices that support both the community and the planet.
           </p>
-          <button className="font-palanquin text-base sm:text-xl lg:text-2xl font-semibold px-8 sm:px-10 lg:px-14 py-3 md:py-5 bg-white border-black border-[1px] w-fit hover:bg-black hover:text-white transition-colors duration-300">
+          <Link
+            to="/"
+            className="font-palanquin text-base sm:text-xl lg:text-2xl font-semibold px-8 sm:px-10 lg:px-14 py-3 md:py-5 bg-white border-black border-[1px] w-fit hover:bg-black hover:text-white transition-colors duration-300"
+          >
             Learn More
-          </button>
+          </Link>
         </div>
       </div>
     </div>

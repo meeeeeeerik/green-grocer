@@ -34,9 +34,9 @@ export function Features() {
                 className="flex-shrink-0 w-10 h-10"
               />
               <div className="min-w-0">
-                <p className="font-opensans font-bold text-sm sm:text-base lg:text-xl truncate">
+                <h3 className="font-opensans font-bold text-sm sm:text-base lg:text-xl truncate">
                   {item.title}
-                </p>
+                </h3>
                 <p className="font-opensans text-sm sm:text-base lg:text-xl truncate">
                   {item.desc}
                 </p>

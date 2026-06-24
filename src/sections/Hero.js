@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import ShoppingCartImage from '../assets/shopping-cart-image.png';
 
 export function Hero() {
@@ -15,14 +16,17 @@ export function Hero() {
             </span>
           </h1>
 
-          <div className="text-base sm:text-lg md:text-xl xl:text-2xl 2xl:text-3xl font-light font-opensans mb-8 md:mb-16 line-clamp-5">
+          <p className="text-base sm:text-lg md:text-xl xl:text-2xl 2xl:text-3xl font-light font-opensans mb-8 md:mb-16 line-clamp-5">
             Experience grocery shopping and swift home delivery with our wide
             range of fresh produce and essentials
-          </div>
+          </p>
 
-          <button className="text-palanquin text-white text-base md:text-xl xl:text-2xl px-6 md:px-10 2xl:px-14 py-3 md:py-5 font-semibold bg-black text-center hover:bg-[#517907] transition-colors duration-300">
+          <Link
+            to="/"
+            className="text-palanquin text-white text-base md:text-xl xl:text-2xl px-6 md:px-10 2xl:px-14 py-3 md:py-5 font-semibold bg-black text-center hover:bg-[#517907] transition-colors duration-300"
+          >
             Learn More
-          </button>
+          </Link>
         </div>
         <div className="w-full max-w-[600px]">
           <img

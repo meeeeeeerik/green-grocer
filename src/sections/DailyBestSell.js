@@ -63,17 +63,19 @@ export function DailyBestSell() {
       </div>
 
       <div className="container mx-auto px-5">
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-10 mt-8">
+        <ul className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-10 mt-8">
           {visibleProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              title={product.title}
-              price={product.price}
-              rating={product.rating}
-              image={product.thumbnail}
-            />
+            <li>
+              <ProductCard
+                key={product.id}
+                title={product.title}
+                price={product.price}
+                rating={product.rating}
+                image={product.thumbnail}
+              />
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="flex justify-center mt-8 sm:mt-10 mb-10">
           {visibleCount < filteredProducts.length ? (
