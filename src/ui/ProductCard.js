@@ -2,10 +2,14 @@ import CartIcon from '../assets/shopping-cart-icon.svg';
 import StarFilledIcon from '../assets/star-filled-icon.svg';
 import StarEmptyIcon from '../assets/star-empty-icon.svg';
 import HeartIcon from '../assets/heart-empty-icon.svg';
+import { Link } from 'react-router-dom';
 
-export function ProductCard({ title, price, rating, image }) {
+export function ProductCard({ title, price, rating, image, id }) {
   return (
-    <div className="shadow-xl px-3 sm:px-5 py-4 sm:py-8 rounded-3xl hover:shadow-3xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+    <Link
+      to={`/product/${id}`}
+      className="block shadow-xl px-3 sm:px-5 py-4 sm:py-8 rounded-3xl hover:shadow-3xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+    >
       <div className="w-full h-[120px] sm:h-[180px] mb-4 sm:mb-10 overflow-hidden">
         <img
           src={image}
@@ -50,6 +54,6 @@ export function ProductCard({ title, price, rating, image }) {
           </button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

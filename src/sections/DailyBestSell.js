@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ProductCard } from '../ui/ProductCard';
-import { getGroceries } from '../api/products';
+import { getProducts } from '../api/products';
 
 export function DailyBestSell() {
   const [products, setProducts] = useState([]);
@@ -28,14 +28,14 @@ export function DailyBestSell() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const data = await getGroceries();
+      const data = await getProducts();
       setProducts(data);
     };
     fetchProducts();
   }, []);
 
   return (
-    <div>
+    <div id="daily-best-sell">
       <div className="xl:sticky xl:top-[96px] bg-white xl:z-10 border-b border-gray-100">
         <div className="container mx-auto px-5 py-3 sm:py-5">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6 lg:gap-10">
@@ -71,6 +71,7 @@ export function DailyBestSell() {
                 price={product.price}
                 rating={product.rating}
                 image={product.thumbnail}
+                id={product.id}
               />
             </li>
           ))}

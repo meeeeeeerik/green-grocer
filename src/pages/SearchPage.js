@@ -47,6 +47,7 @@ export function SearchPage() {
               price={product.price}
               rating={product.rating}
               image={product.thumbnail}
+              id={product.id}
             />
           </li>
         ))}

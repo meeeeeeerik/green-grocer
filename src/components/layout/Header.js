@@ -3,7 +3,7 @@ import SearchIcon from '../../assets/search-icon.svg';
 import HeartIcon from '../../assets/heart-icon.svg';
 import ShoppingCartIcon from '../../assets/shopping-cart-icon.svg';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
 import { NavLink } from 'react-router-dom';
@@ -14,6 +14,7 @@ export function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
+  const isFirstRender = useRef(true);
 
   const searchInput = (event) => {
     setSearchQuery(event.target.value);
@@ -29,17 +30,23 @@ export function Header() {
   }, []);
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
     const timer = setTimeout(() => {
       if (!searchQuery.trim()) {
         navigate('/');
         return;
       }
-      
+
       setIsMobileMenuOpen(false);
       navigate('/search?q=' + searchQuery);
     }, 1000);
     return () => clearTimeout(timer);
-  }, [searchQuery, navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- navigate меняет ссылку при каждой навигации и вызывает лишний ре-запуск эффекта
+  }, [searchQuery]);
 
   useEffect(() => {
     if (location.pathname !== '/search') {
