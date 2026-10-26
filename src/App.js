@@ -5,21 +5,26 @@ import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { SearchPage } from './pages/SearchPage';
 import { ScrollToTop } from './components/ScrollToTop';
+import { AuthProvider } from './context/AuthContext';
+import { LoginPage } from './pages/LoginPage';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App pb-5">
-        <ScrollToTop />
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/search" element={<SearchPage />}></Route>
-          <Route path="/product/:id" element={<ProductPage />}></Route>
-        </Routes>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <div className="App pb-5">
+          <ScrollToTop />
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />}></Route>
+            <Route path="/search" element={<SearchPage />}></Route>
+            <Route path="/product/:id" element={<ProductPage />}></Route>
+            <Route path="/login" element={<LoginPage />}></Route>
+          </Routes>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

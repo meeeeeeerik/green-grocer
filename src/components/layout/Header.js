@@ -3,12 +3,15 @@ import SearchIcon from '../../assets/search-icon.svg';
 import HeartIcon from '../../assets/heart-icon.svg';
 import ShoppingCartIcon from '../../assets/shopping-cart-icon.svg';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef, useContext } from 'react';
 import { Menu, X } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 export function Header() {
+  const { user, logoutUser } = useContext(AuthContext);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -154,14 +157,27 @@ export function Header() {
               />
             </span>
           </div>
-          <div className="hidden xl:flex gap-7">
-            <button className="text-inter text-xl border-black border-[1px] px-3 py-2 hover:bg-black hover:text-white transition-colors duration-200">
-              Login
-            </button>
-            <button className="text-inter text-xl px-3 py-2 hover:text-[#517907] transition-colors duration-200">
-              Sign Up
-            </button>
-          </div>
+          {user ? (
+            <div className="hidden xl:flex items-center gap-4">
+              <p className="text-lg font-semibold">{user.firstName}</p>
+              <button
+                onClick={logoutUser}
+                className="text-inter text-xl border-black border-[1px] px-3 py-2 hover:bg-black hover:text-white transition-colors duration-200"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className="hidden xl:flex gap-7">
+              <Link
+                to="/login"
+                className="text-inter text-xl border-black border-[1px] px-3 py-2 hover:bg-black hover:text-white transition-colors duration-200"
+              >
+                Login
+              </Link>
+            </div>
+          )}
+
           <button
             className="xl:hidden p-2 md:p-4 hover:bg-slate-100 cursor-pointer rounded-md"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

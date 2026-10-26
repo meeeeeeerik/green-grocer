@@ -1,8 +1,9 @@
-import { NavLink, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
 import SearchIcon from '../../assets/search-icon.svg';
 import HeartIcon from '../../assets/heart-icon.svg';
 import ShoppingCartIcon from '../../assets/shopping-cart-icon.svg';
+import { AuthContext } from '../../context/AuthContext';
 
 export function MobileMenu({
   isMenuOpen,
@@ -12,6 +13,7 @@ export function MobileMenu({
   onSearchSubmit,
 }) {
   const location = useLocation();
+  const { user, logoutUser } = useContext(AuthContext);
 
   useEffect(() => {
     const timer = setTimeout(() => onMenuClose(), 1000);
@@ -97,13 +99,25 @@ export function MobileMenu({
           />
         </div>
 
-        <div className="flex gap-3">
-          <button className="border border-black px-3 py-2 hover:bg-black hover:text-white transition-colors duration-200">
-            Login
-          </button>
-          <button className="px-3 py-2 hover:text-[#517907] transition-colors duration-200">
-            Sign Up
-          </button>
+        <div className="flex items-center gap-3">
+          {user ? (
+            <>
+              <p className="font-semibold">{user.firstName}</p>
+              <button
+                onClick={logoutUser}
+                className="border border-black px-3 py-2 hover:bg-black hover:text-white transition-colors duration-200"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link
+              to="/login"
+              className="border border-black px-3 py-2 hover:bg-black hover:text-white transition-colors duration-200"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </>
