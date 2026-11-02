@@ -6,14 +6,23 @@ export function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const [error, setError] = useState('');
+
   const navigate = useNavigate();
 
   const { loginUser } = useContext(AuthContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await loginUser(username, password);
-    navigate('/');
+
+    setError('');
+
+    try {
+      await loginUser(username, password);
+      navigate('/');
+    } catch (e) {
+      setError(e.message);
+    }
   };
 
   return (
@@ -23,10 +32,7 @@ export function LoginPage() {
           Login
         </h1>
 
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-4 sm:gap-6"
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-6">
           <input
             type="text"
             placeholder="username"
@@ -42,6 +48,8 @@ export function LoginPage() {
             onChange={(event) => setPassword(event.target.value)}
             className="font-opensans border border-gray-300 px-4 py-3 outline-none focus:border-[#517907] transition-colors duration-200"
           />
+
+          {error && <p className="text-red-500 font-opensans">{error}</p>}
 
           <button
             type="submit"

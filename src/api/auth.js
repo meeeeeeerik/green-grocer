@@ -4,6 +4,11 @@ export async function login(username, password) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password }),
   });
+
+  if (!response.ok) {
+    throw new Error('Неверный логин или пароль');
+  }
+
   const data = await response.json();
   return data;
 }
