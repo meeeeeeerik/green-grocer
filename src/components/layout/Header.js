@@ -206,6 +206,7 @@ export function Header() {
         searchQuery={searchQuery}
         onSearchChange={searchInput}
         onSearchSubmit={handleSearch}
+        totalQuantityInCart={totalQuantityInCart}
       />
     </header>
   );

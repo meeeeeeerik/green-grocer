@@ -12,6 +12,7 @@ export function ProductPage() {
   const [product, setProduct] = useState({});
   const [activeImage, setActiveImage] = useState('');
   const [quantity, setQuantity] = useState(1);
+  const [isAddedProductToCart, setIsAddedProductToCart] = useState(false);
 
   const { addToCart } = useContext(CartContext);
 
@@ -144,15 +145,21 @@ export function ProductPage() {
             </div>
 
             <button
-              onClick={() => addToCart(product, quantity)}
-              className="flex items-center justify-center gap-2 sm:gap-3 bg-[#D6ECAC] hover:bg-[#517907] text-black hover:text-white transition-colors duration-300 px-5 sm:px-10 py-3 sm:py-4 rounded-full font-opensans text-sm sm:text-lg font-semibold group flex-1 sm:flex-initial"
+              onClick={() => {
+                addToCart(product, quantity);
+                setIsAddedProductToCart(true);
+                setTimeout(() => {
+                  setIsAddedProductToCart(false);
+                }, 2000);
+              }}
+              className={`flex items-center justify-center gap-2 sm:gap-3 ${isAddedProductToCart ? 'bg-[#517907]' : 'bg-[#D6ECAC]'} hover:bg-[#517907] text-black hover:text-white transition-colors duration-300 px-5 sm:px-10 py-3 sm:py-4 rounded-full font-opensans text-sm sm:text-lg font-semibold group flex-1 sm:flex-initial`}
             >
               <img
                 src={CartIcon}
                 alt=""
                 className="w-5 h-5 sm:w-6 sm:h-6 group-hover:brightness-0 group-hover:invert transition-all duration-300"
               />
-              Add to Cart
+              {isAddedProductToCart ? 'Added ✓' : 'Add to Cart'}
             </button>
 
             <button className="w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center border border-gray-300 rounded-full hover:scale-110 transition-transform duration-200 flex-shrink-0">

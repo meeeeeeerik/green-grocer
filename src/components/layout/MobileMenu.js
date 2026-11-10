@@ -11,6 +11,7 @@ export function MobileMenu({
   searchQuery,
   onSearchChange,
   onSearchSubmit,
+  totalQuantityInCart,
 }) {
   const location = useLocation();
   const { user, logoutUser } = useContext(AuthContext);
@@ -92,11 +93,21 @@ export function MobileMenu({
             alt="Heart"
             className="w-6 h-6 hover:scale-110 transition-transform duration-200 cursor-pointer"
           />
-          <img
-            src={ShoppingCartIcon}
-            alt="Cart"
-            className="w-6 h-6 hover:scale-110 transition-transform duration-200 cursor-pointer"
-          />
+          <Link
+            to="/cart"
+            className="relative flex-shrink-0 p-2 md:p-4 xl:p-0 xl:hover:bg-inherit hover:bg-slate-100 cursor-pointer rounded-md hover:scale-110 transition-transform duration-200"
+          >
+            <img
+              src={ShoppingCartIcon}
+              alt="Cart"
+              className="w-6 h-6 hover:scale-110 transition-transform duration-200 cursor-pointer"
+            />
+            {totalQuantityInCart > 0 && (
+              <span className="absolute -top-2 -right-2 bg-[#517907] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                {totalQuantityInCart}
+              </span>
+            )}
+          </Link>
         </div>
 
         <div className="flex items-center gap-3">
