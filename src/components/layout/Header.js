@@ -8,9 +8,11 @@ import { Menu, X } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import { CartContext } from '../../context/CartContext';
 
 export function Header() {
   const { user, logoutUser } = useContext(AuthContext);
+  const { cartItems } = useContext(CartContext);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -18,6 +20,10 @@ export function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const isFirstRender = useRef(true);
+
+  const totalQuantityInCart = cartItems.reduce((acc, cartItem) => {
+    return acc + cartItem.qty;
+  }, 0);
 
   const searchInput = (event) => {
     setSearchQuery(event.target.value);
@@ -149,13 +155,21 @@ export function Header() {
             <span className=" flex-shrink-0 p-2 md:p-4 xl:p-0 xl:hover:bg-inherit hover:bg-slate-100 cursor-pointer rounded-md hover:scale-110 transition-transform duration-200">
               <img src={HeartIcon} alt="Heart Icon" className="w-6 h-6" />
             </span>
-            <span className="flex-shrink-0 p-2 md:p-4 xl:p-0 xl:hover:bg-inherit hover:bg-slate-100 cursor-pointer rounded-md hover:scale-110 transition-transform duration-200">
+            <Link
+              to="/cart"
+              className="relative flex-shrink-0 p-2 md:p-4 xl:p-0 xl:hover:bg-inherit hover:bg-slate-100 cursor-pointer rounded-md hover:scale-110 transition-transform duration-200"
+            >
               <img
                 src={ShoppingCartIcon}
                 alt="Shopping Cart Icon"
                 className="w-6 h-6"
               />
-            </span>
+              {totalQuantityInCart > 0 && (
+                <span className="absolute -top-2 -right-2 bg-[#517907] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {totalQuantityInCart}
+                </span>
+              )}
+            </Link>
           </div>
           {user ? (
             <div className="hidden xl:flex items-center gap-4">

@@ -3,14 +3,17 @@ import StarEmptyIcon from '../assets/star-empty-icon.svg';
 import CartIcon from '../assets/shopping-cart-icon.svg';
 import HeartIcon from '../assets/heart-empty-icon.svg';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { getProduct } from '../api/product';
+import { CartContext } from '../context/CartContext';
 
 export function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [activeImage, setActiveImage] = useState('');
   const [quantity, setQuantity] = useState(1);
+
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -140,7 +143,10 @@ export function ProductPage() {
               </button>
             </div>
 
-            <button className="flex items-center justify-center gap-2 sm:gap-3 bg-[#D6ECAC] hover:bg-[#517907] text-black hover:text-white transition-colors duration-300 px-5 sm:px-10 py-3 sm:py-4 rounded-full font-opensans text-sm sm:text-lg font-semibold group flex-1 sm:flex-initial">
+            <button
+              onClick={() => addToCart(product, quantity)}
+              className="flex items-center justify-center gap-2 sm:gap-3 bg-[#D6ECAC] hover:bg-[#517907] text-black hover:text-white transition-colors duration-300 px-5 sm:px-10 py-3 sm:py-4 rounded-full font-opensans text-sm sm:text-lg font-semibold group flex-1 sm:flex-initial"
+            >
               <img
                 src={CartIcon}
                 alt=""
